@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-jokes
+    environment:
+      POSTGRES_USER: your-username
+      POSTGRES_PASSWORD: your-password
+      POSTGRES_DB: jokesdb
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
